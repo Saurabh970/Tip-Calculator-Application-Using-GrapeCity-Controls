@@ -1,0 +1,33 @@
+<div class="container-fluid flex-container">
+    <div class="form-group">
+        <label for="Bill">Bill</label>
+        <br>
+        <wj-input-number class="input" [format]="'n2'" [(value)]="billAmount" [min]="1"></wj-input-number>
+       <br>
+        <label for="Tip">Tip %</label>
+        <br>
+        <wj-input-number class="input" [format]="'p0'" [(value)]="tipPercentage" [min]="0.01" [max]="0.50" [step]="0.01"></wj-input-number>
+        <br>
+        <label for="NumberOfPeople">Number Of People</label>
+        <br>
+        <wj-input-number class="input" [format]="'n0'" [(value)]="numberOfPeople" [min]="1" [step]="1"></wj-input-number>
+    </div>
+    <div class="line"></div>
+    <div>
+        <div class="inner-flex-container">
+            <div><span class="item1">Tip</span> <br><span class="item2">Per Person </span></div>
+            
+            <div><span class="item3-1">${{ tipPerPerson }}</span></div> 
+        </div>
+        
+        <div class="inner-flex-container">
+            <div><span class="item1">Total</span> <br><span class="item2">Per Person </span></div>
+            
+            <div><span class="item3-2">${{ totalPerPerson }}</span></div> 
+        </div>
+    </div>
+</div>
+
+<div class="button">
+    <button type="submit" (click)="calculateTip()">Calculate!</button>
+</div>
